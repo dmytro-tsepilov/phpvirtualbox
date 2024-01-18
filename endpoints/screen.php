@@ -87,16 +87,16 @@ try {
 
 		// Let the browser cache images for 3 seconds
 		$ctime = 0;
-		if(strpos($_SERVER['HTTP_IF_NONE_MATCH'],'_')) {
+		if(strpos((string)$_SERVER['HTTP_IF_NONE_MATCH'],'_')) {
 			$ctime = preg_replace("/.*_/",str_replace('"','',$_SERVER['HTTP_IF_NONE_MATCH']));
-		} else if(strpos($_ENV['HTTP_IF_NONE_MATCH'],'_')) {
+		} else if(strpos((string)$_ENV['HTTP_IF_NONE_MATCH'],'_')) {
 			$ctime = preg_replace("/.*_/",str_replace('"','',$_ENV['HTTP_IF_NONE_MATCH']));
-		} else if(strpos($_SERVER['HTTP_IF_MODIFIED_SINCE'],'GMT')) {
+		} else if(strpos((string)$_SERVER['HTTP_IF_MODIFIED_SINCE'],'GMT')) {
 			$ctime = strtotime($_SERVER['HTTP_IF_MODIFIED_SINCE']);
-		} else if(strpos($_ENV['HTTP_IF_MODIFIED_SINCE'],'GMT')) {
+		} else if(strpos((string)$_ENV['HTTP_IF_MODIFIED_SINCE'],'GMT')) {
 			$ctime = strtotime($_ENV['HTTP_IF_MODIFIED_SINCE']);
 		}
-		
+
     	if($ctime >= (time()-3)) {
 			if (strpos(strtolower(php_sapi_name()),'cgi') !== false) {
 				Header("Status: 304 Not Modified");
@@ -105,7 +105,7 @@ try {
 			}
       		exit;
     	}
-		
+
 
     	header("Last-Modified: " . gmdate("D, d M Y H:i:s") . " GMT");
     	
