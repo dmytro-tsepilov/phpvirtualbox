@@ -102,6 +102,8 @@ try {
 			$response['data']['responseData']['groupDefinitionKey'] = ($settings->phpVboxGroups ? vboxconnector::phpVboxGroupKey : 'GUI/GroupDefinitions');
 
 			$response['data']['success'] = true;
+			// Add php version
+			$response['data']['responseData']['version']['php'] = phpversion();
 
 			break;
 
@@ -334,7 +336,10 @@ try {
 
 	// Just append to $vbox->errors and let it get
 	// taken care of below
-	if(!$vbox || !$vbox->errors) {
+	if(!$vbox) {
+		$vbox = (object)array('errors' => [], 'messages' => []);
+	}
+	if(!$vbox->errors) {
 		$vbox->errors = array();
 	}
 	$vbox->errors[] = $e;

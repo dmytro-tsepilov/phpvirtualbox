@@ -12,7 +12,7 @@ Originally Copyright (C) 2015 Ian Moore (imoore76 at yahoo dot com) - <a href='L
 <div style='margin-top: 10px; border-top: 1px solid #000;' id='vboxAboutVbox'><p>VirtualBox</p>
 	<script type='text/javascript'>
 		$('#vboxAboutHeader').html('phpVirtualBox '+$('#vboxPane').data('vboxConfig').phpvboxver+' -/- VirtualBox '+$('#vboxPane').data('vboxConfig').phpvboxver.substring(0,$('#vboxPane').data('vboxConfig').phpvboxver.indexOf('-'))+'.x compatible');
-		$('#vboxAboutVbox').html('Virtual Box '+$('#vboxPane').data('vboxConfig').version.string+' ('+$('#vboxPane').data('vboxConfig').version.revision+')<br />' + $('#vboxPane').data('vboxConfig').version.settingsFilePath);
+		$('#vboxAboutVbox').html('Virtual Box '+$('#vboxPane').data('vboxConfig').version.string+' ('+$('#vboxPane').data('vboxConfig').version.revision+')<br />' + $('#vboxPane').data('vboxConfig').version.settingsFilePath + '<br>PHP '+ $('#vboxPane').data('vboxConfig').version.php);
 	</script>
 </div>
 </div>

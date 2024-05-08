@@ -75,7 +75,7 @@ class __vbox_language {
 
 		if(!array_key_exists('context',$arrXml)) return;
 		$lang = array();
-		if(!@$arrXml['context'][0]) $arrXml['context'] = array($arrXml['context']);
+		if(!isset($arrXml['context'][0])) @$arrXml['context'] = array($arrXml['context']);
 		foreach($arrXml['context'] as $c) {
 
 			if(!is_array($c) || !@$c['name']) continue;
