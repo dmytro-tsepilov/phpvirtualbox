@@ -22,7 +22,7 @@
 //
 
 # Turn off PHP notices
-error_reporting(E_ALL & ~E_NOTICE & ~E_STRICT & ~E_WARNING);
+error_reporting(E_ALL & ~E_NOTICE & ~E_WARNING);
 
 global $vbox, $localbrowser, $allowed;
 
